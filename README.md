@@ -20,6 +20,6 @@ verification comment out ACCOUNT_EMAIL_VERIFICATION = "mandatory" in settings.
 
 Users may sign in with username, email, or phone.
 
-Oncd signed in, there is a link to "Account" where users can manage their
+Once signed in, there is a link to "Account" where users can manage their
 information.
  
