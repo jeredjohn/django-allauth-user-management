@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}                                                                                                                       
+{% block title %}{% trans "Sign Out" %}{% endblock title %}
+{% load bootstrap5 %}
+{% block content %}
+    <div class="content-section box-sh mb-4">
+        <form method="POST">
+            {% csrf_token %}
+                <legend class="mb-4">Join Today</legend>
+                {% bootstrap_form form %}
+            <div class="button">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="pt-3">
+            <small class="text-muted">
+                Already Have An Account?&nbsp;&nbsp;
+                <a class="ml-2" href="{% url 'account_login' %}">
+                    <small>SIGN IN &#187;</small>
+                </a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

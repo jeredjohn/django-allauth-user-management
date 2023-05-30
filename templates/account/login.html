@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% load i18n %}
+{% block title %}{% trans "Sign In" %}{% endblock title %}
+{% block content %}
+
+    <div class="content-section box-sh">
+      <form method="POST" action="{% url 'account_login' %}">
+      <legend>{% trans "Sign In" %}</legend>    
+      {% csrf_token %}
+      <p>
+        <small>
+            You may use the same email address or phone number that you registered
+            with in place of your username.
+        </small>
+      </p>
+      {% bootstrap_form form %}
+      <p>
+        <small>
+            If you have not created an account yet, then please &nbsp;
+        </small>
+        <small>
+            <a href="{{ signup_url }}">
+                <small>SIGN UP &#187;</small> 
+            </a>
+        </small>
+      </p>
+      <p>
+      <small>
+          <span>{% trans "Forgot Password?" %}&nbsp;&nbsp;</span>
+              <a href="{% url 'account_reset_password' %}">
+                  <small>RESET </small>&#187;
+              </a>
+      </small>
+      </p>
+      <div class="button mt-2">
+        <button class="btn-submit" type="submit">{% trans "Sign In" %}</button>
+      </div>
+    </form>
+    </div>
+
+{% endblock %}

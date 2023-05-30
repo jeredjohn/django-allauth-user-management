@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load bootstrap5 %} 
+{% block title %}Account{% endblock title %}
+{% block content %}
+    <div class="content-section box-sh">
+        <div class="round-img account-img">
+            <img src="{{ user.avatar.url }}" alt="profile image">
+        </div>
+        <div class="mb-4">
+            {% if user.first_name %}
+                <h2>{{ user.first_name|title }} {{ user.last_name|title }}</h2>
+            {% else %}
+                <h2>{{ user.username }}</h2>
+            {% endif %}
+            <p>Joined {{ user.date_joined|date:"M d, Y" }}</p>
+            <a class="submit" href="{% url 'account_update' user.id %}">
+                Update Account
+            </a>
+        </div>
+        <div class="account-list">
+            <div class="section">
+                <h3>Security</h3>
+                <div class="section">
+                    <p class="fl-row">
+                        <span>Password</span>
+                        <span>Updated {{ user.date_joined|date:"M d, Y" }}</span>
+                        <span>
+                            <a class="submit" href="{% url 'account_change_password' %}">
+                                Change 
+                            </a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="section">
+                <h3>General</h3>
+                <div class="section">
+                    <p class="fl-row">
+                        <span>First name</span>    
+                        <span>{{ user.first_name|title }}</span>
+                        <span></span>
+                    </p>
+                </div>
+                <div class="section">
+                    <p class="fl-row">
+                        <span>Last name</span>    
+                        <span>{{ user.last_name|title }}</span>
+                        <span></span>
+                    </p>
+                </div>
+                <div class="section">
+                    <p class="fl-row">
+                        <span>Username</span>    
+                        <span>{{ user.username }}</span>
+                        <span></span>
+                    </p>
+                </div>
+                </div>
+                <div class="section">
+                    <h3>Contact</h3>
+                    <div class="section">
+                        <p class="fl-row">
+                            <span>Email</span>    
+                            <span>{{ user.email }}</span>
+                            <span>
+                                <a class="submit" href="{% url 'account_email' %}">
+                                    Manage
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="section">
+                        <p class="fl-row">
+                            <span>Phone</span>
+                            {% if user.phone %}
+                                <span>{{ user.format_phone }}</span>
+                            {% else %}   
+                                <span>Not provided</span>
+                            {% endif %}
+                            <span></span>
+                        </p>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock content %}
+
+

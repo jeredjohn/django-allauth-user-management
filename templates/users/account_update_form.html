@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block title %}Account Update{% endblock title %}
+{% block content %}
+    <div class="content-section box-sh mb-4">
+      <form method="POST" enctype="multipart/form-data">
+          <legend>Update Profile</legend>
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div class="button mt-4">
+              <button type="submit">Update</button>
+          </div>
+      </form>
+    </div>
+{% endblock content %}
