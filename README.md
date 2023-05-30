@@ -7,11 +7,13 @@ environment variables, so you will have to set those to your own.
 
 2: Install and activate virtual environment
 
-3: python manage.py makemigrations
+3: pip install -r requirements.txt
 
-4: python manage.py migrate
+4: python manage.py makemigrations
 
-5: python manage.py runserver
+5: python manage.py migrate
+
+6: python manage.py runserver
 
 That's it!
 
