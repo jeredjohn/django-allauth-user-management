@@ -12,7 +12,9 @@
             {% else %}
                 <h2>{{ user.username }}</h2>
             {% endif %}
-            <p>Joined {{ user.date_joined|date:"M d, Y" }}</p>
+						<p>Joined 
+							<span id="date-joined">{{ user.date_joined|date:"M d, Y" }}</span>
+						</p>
             <a class="submit" href="{% url 'account_update' user.id %}">
                 Update Account
             </a>
@@ -23,7 +25,7 @@
                 <div class="section">
                     <p class="fl-row">
                         <span>Password</span>
-                        <span>Updated {{ user.date_joined|date:"M d, Y" }}</span>
+                        <span id="pass-last-changed"></span>
                         <span>
                             <a class="submit" href="{% url 'account_change_password' %}">
                                 Change 
